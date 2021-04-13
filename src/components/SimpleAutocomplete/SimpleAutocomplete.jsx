@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { addFilter } from './../../redux/actions/main';
 import { createStructuredSelector } from 'reselect';
 import { selectCreatedFilters } from './../../redux/selectors/main';
+import PropTypes from 'prop-types';
+import noop from 'lodash/noop';
 
 const PHASES = {
   DEFAULT_PHASE: 'DEFAULT_PHASE',
@@ -205,5 +207,15 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   addFilter: (el) => dispatch(addFilter(el)),
 });
+
+SimpleAutocomplete.propTypes = {
+  createdFilters: PropTypes.array,
+  addFilter: PropTypes.func,
+};
+
+SimpleAutocomplete.defaultProps = {
+  createdFilters: [],
+  addFilter: noop,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleAutocomplete);

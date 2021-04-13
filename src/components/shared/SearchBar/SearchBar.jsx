@@ -10,6 +10,8 @@ import { removeFilter } from '../../../redux/actions/main';
 import Chip from './../Chip/Chip';
 import { clearFilters, addFilter } from './../../../redux/actions/main';
 import Autocomplete from './../../CustomAutocomplete/CustomAutocomplete';
+import noop from 'lodash/noop';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   state = {
@@ -87,5 +89,21 @@ const mapDispatchToProps = (dispatch) => ({
   removeFilter: (el) => dispatch(removeFilter(el)),
   clearFilters: () => dispatch(clearFilters()),
 });
+
+SearchBar.propTypes = {
+  createdFilters: PropTypes.array,
+  historyFilters: PropTypes.array,
+  addFilter: PropTypes.func,
+  removeFilter: PropTypes.func,
+  clearFilters: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  createdFilters: [],
+  historyFilters: [],
+  addFilter: noop,
+  removeFilter: noop,
+  clearFilters: noop,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
