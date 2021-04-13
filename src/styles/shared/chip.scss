@@ -1,0 +1,22 @@
+.chip {
+    &_container {
+        display: inline-block;
+        border: 1px solid #e7e7e7;
+        border-radius: 10px;
+        padding: 6px 7px 4px 7px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-family: "Roboto", sans-serif;
+        margin-right: 5px;
+        white-space: nowrap;
+    }
+    &_close {
+        display: inline-block;
+        font-size: 12px;
+        margin-left: 7px;
+        font-weight: bold;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

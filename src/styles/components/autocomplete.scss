@@ -1,0 +1,59 @@
+.autocomplete {
+    &_wrapper {
+        margin: 10px 0;
+        padding: 0;
+        background: #fff;
+        width: 400px;
+        border-radius: 5px;
+
+        &.left-bottom {
+            position: absolute;
+            left: 0;
+            top: 40px;
+        }
+        &.right-bottom {
+            position: absolute;
+            top: 40px;
+            right: 0;
+        }
+    }
+    &_item {
+        display: block;
+        width: 100%;
+        margin: auto;
+        padding: 15px;
+        box-sizing: border-box;
+        border: none;
+        font-family: "Roboto", sans-serif;
+
+        &:hover {
+            cursor: pointer;
+            background: rgb(250, 250, 250);
+        }
+        &.COMPLETE_TYPE {
+            .value {
+                color: darkblue;
+            }
+        }
+        &.MULTI_SELECT_TYPE {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .type {
+                font-size: 20px;
+                &.draft {
+                    color: gray;
+                }
+                &.in_progress {
+                    color: darkorange;
+                }
+                &.ready {
+                    color: blue;
+                }
+                &.completed {
+                    color: green;
+                }
+            }
+        }
+    }
+}
